@@ -169,3 +169,67 @@ int main()
 */
 
 
+/*
+ *
+ *
+ //////////////////////////////        STRINGS ASSIGNMENT            //////////////////////////////
+ *
+ *
+ */
+
+/*
+ * Problem 1
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char str[100],chr;
+	printf("Enter a string ");
+	fflush(stdin);fflush(stdout);
+	gets(str);
+	printf("Enter a character to find its frequency ");
+	fflush(stdin);fflush(stdout);
+	scanf("%c",&chr);
+	int len=strlen(str),i,freq=0;
+	for(i=0;i<len;i++)
+		str[i]==chr? freq+=1 : 0 ;
+	printf("Frequency of %c is %d\n",chr,freq);
+}
+*/
+/*
+ * Problem 2
+#include<stdio.h>
+int main()
+{
+	char txt[100];
+	int len=0,i=0;
+	printf("Enter a string ");
+	fflush(stdin);fflush(stdout);
+	scanf("%s",txt);
+	while(txt[i]!=0)
+	{
+		len+=1;
+		i++;
+	}
+	printf("Length of string is %d",len);
+}
+*/
+/*
+ * Problem 3
+#include<stdio.h>
+#include<string.h>
+int main()
+{
+	char txt[100],reversed[100];
+	printf("Enter a string ");
+	fflush(stdin);fflush(stdout);
+	scanf("%s",txt);
+	int len=strlen(txt),i=0;
+	do
+	{
+		reversed[i]=txt[len-(i+1)];
+		i++;
+	}while(i<len);
+	printf("Reversed string is %s\n",reversed);
+}
+*/
