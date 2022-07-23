@@ -53,7 +53,8 @@ char isPrime(int num) //char as bool is not supported in C
 	return 1;
 }
 */
-
+/*
+ * problem 2
 #include<stdio.h>
 unsigned int fac(unsigned int n);
 int main(void)
@@ -70,4 +71,22 @@ unsigned int fac(unsigned int n)
 	if(n<2)   //fac 0 and 1 equals 1
 		return 1;
 	return n*fac(n-1);  // for example : 6! = 6 * 5!
+}
+*/
+#include<stdio.h>
+#include<string.h>
+void reverse(char sen[],int sz);
+int main()
+{
+	char str[100];
+	printf("Enter a sentence ");
+	fflush(stdin);fflush(stdout);
+	gets(str);
+	reverse(str,strlen(str));  //passing the size reduced by 1 (ie null) and this will be considered in the function defination
+}
+void reverse(char sen[],int sz)
+{
+	int i;
+	for(i=1;i<=sz;i++) //counter starts from 1 not 0 as sen[sz] = nul
+		printf("%c",sen[sz-i]);
 }
