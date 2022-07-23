@@ -73,6 +73,8 @@ unsigned int fac(unsigned int n)
 	return n*fac(n-1);  // for example : 6! = 6 * 5!
 }
 */
+/*
+ * Problem 3
 #include<stdio.h>
 #include<string.h>
 void reverse(char sen[],int sz);
@@ -90,3 +92,27 @@ void reverse(char sen[],int sz)
 	for(i=1;i<=sz;i++) //counter starts from 1 not 0 as sen[sz] = nul
 		printf("%c",sen[sz-i]);
 }
+*/
+/*
+ * Problem 4
+#include<stdio.h>
+unsigned int powerfn(unsigned int b,unsigned int p);
+int main(void)
+{
+	unsigned int base,power;
+	printf("Enter base number : ");
+	fflush(stdin);fflush(stdout);
+	scanf("%u",&base);
+	printf("Enter power number : ");
+	fflush(stdin);fflush(stdout);
+	scanf("%u",&power);
+	printf("%u^%u = %u",base,power,powerfn(base,power));
+	return 0;
+}
+unsigned int powerfn(unsigned int b,unsigned int p)
+{
+	if(p==1)
+		return b;
+	return b*powerfn(b,p-1);
+}
+*/
