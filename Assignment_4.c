@@ -55,7 +55,19 @@ char isPrime(int num) //char as bool is not supported in C
 */
 
 #include<stdio.h>
-void main(void)
+unsigned int fac(unsigned int n);
+int main(void)
 {
-
+	unsigned int num;
+	printf("Enter a positive number ");
+	fflush(stdin);fflush(stdout);
+	scanf("%u",&num);
+	printf("factorial of %u is : %u\n",num,fac(num));
+	return 0;
+}
+unsigned int fac(unsigned int n)
+{
+	if(n<2)   //fac 0 and 1 equals 1
+		return 1;
+	return n*fac(n-1);  // for example : 6! = 6 * 5!
 }
