@@ -136,3 +136,39 @@ int main()
 	return 0;
 }
 */
+/*
+ //problem 5
+#include<stdio.h>
+int main(void)
+{
+
+
+
+
+
+	return 0;
+}
+ */
+//problem 6 union >>>> 32 bytes ,,,, structure >>>>>>>>>> 40 bytes
+/*
+ //check
+#include<stdio.h>
+union job
+{
+	char name[32];
+	float salary;
+	int worker_no;
+}u;
+struct Sjob
+{
+	char name[32];
+	float salary;
+	int worker_no;
+}s;
+int main(void)
+{
+	printf("\n size of union = %d",sizeof(u));
+	printf("\n size of structure = %d",sizeof(s));
+	return 0;
+}*/
+
