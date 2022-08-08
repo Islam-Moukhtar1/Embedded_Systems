@@ -99,11 +99,40 @@ int main(void)
 	printf("Sum is %f + %f i",numbers[2].real,numbers[2].img);
 	return 0;
 }*/
+/*
+ //Problem 4
 #include<stdio.h>
-
+struct Sstudent
+{
+	int roll;
+	char name[100];
+	float mark;
+};
 int main()
 {
-
-
+	struct Sstudent students[10];
+	int i;
+	printf("Enter information of students:");
+	fflush(stdin);fflush(stdout);
+	for(i=0;i<10;i++)
+	{
+		printf("\n\nFor roll number %d\n",i+1);
+		fflush(stdin);fflush(stdout);
+		printf("Enter the name ");
+		fflush(stdin);fflush(stdout);
+		gets(students[i].name);
+		printf("Enter the mark ");
+		fflush(stdin);fflush(stdout);
+		scanf("%f",&students[i].mark);
+	}
+	printf("Displaying information of students:");
+	fflush(stdin);fflush(stdout);
+	for(i=0;i<10;i++)
+	{
+		printf("\n\nInformation For roll number %d\n",i+1);
+		printf("Name : %s \n",students[i].name);
+		printf("Mark : %f \n",students[i].mark);
+	}
 	return 0;
 }
+*/
