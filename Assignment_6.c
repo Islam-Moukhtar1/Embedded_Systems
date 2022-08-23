@@ -45,7 +45,8 @@ int main(void)
 }
 */
 
-
+/*
+//problem 3
 #include<stdio.h>
 #include<string.h>
 int main(void)
@@ -61,5 +62,31 @@ int main(void)
 		printf("%c",*ptr);
 		ptr--;
 	}printf("\n");
+	return 0;
+}
+*/
+
+
+//poblem 4
+#include<stdio.h>
+int main(void)
+{
+	int arr[15],n,i=0;
+	printf("Enter the number of elements in the array (max 15) ");
+	fflush(stdin);fflush(stdout);
+	scanf("%d",&n);
+	while(i<n)
+	{
+		printf("element - %d ",i+1);
+		fflush(stdin);fflush(stdout);
+		scanf("%d",&arr[i]);
+		i++;
+	}i--;
+	while(i>=0)
+	{
+		printf("element - %d %d \n",i+1,arr[i]);
+		i--;
+	}
+
 	return 0;
 }
