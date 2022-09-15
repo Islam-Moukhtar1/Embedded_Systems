@@ -2,28 +2,14 @@
 startup.c
 Eng. Islam Moukhtar
 */
-
-typedef unsigned int uint32_t ;
-typedef unsigned char uchar8_t ; 
- 
- 
-extern void main(void);
-//extern symbols used in kinker_script
-extern uint32_t  _E_TEXT;
-extern uint32_t  _S_DATA;
-extern uint32_t  _E_DATA;
-extern uint32_t  _S_BSS;
-extern uint32_t  _E_BSS;
-
 void Reset_Handler(void);
 
-//Defination of the target
-void Default_Handler(void)
-{
-	Reset_Handler();
-}
 
+typedef unsigned int uint32_t ;
+typedef unsigned char uchar8_t ;
 
+extern uint32_t stack_top;
+ 
 //prototypes for all the vector table functions 
 //All are having weak attribute to override them on need (in main.c)
 //All are having alias to Default_Handler target
@@ -34,10 +20,11 @@ void MM_fault_Handler()__attribute__((weak,alias ("Default_Handler")));;
 void Bus_fault()__attribute__((weak,alias ("Default_Handler")));;
 void Usage_fault_Handler()__attribute__((weak,alias ("Default_Handler")));;
 
+ 
 //Define an array containing the vector handelers 
 //And add them in .vectors section using pragma concept
-uint32_t Vectors[] __attribute__((section(".Vectors")))={
-(uint32_t)         0x20001000,
+uint32_t Vectors[] __attribute__((section(".vectors")))={
+				   &stack_top,
 (uint32_t)         &Reset_Handler,
 (uint32_t)         &NMI_Handler,
 (uint32_t)         &H_fault_Handler,
@@ -45,6 +32,30 @@ uint32_t Vectors[] __attribute__((section(".Vectors")))={
 (uint32_t)         &Bus_fault,
 (uint32_t)         &Usage_fault_Handler
 };
+ 
+ 
+ 
+extern void main(void);
+//extern symbols used in kinker_script
+extern uint32_t  _E_TEXT;
+extern uint32_t  _S_DATA;
+extern uint32_t  _E_DATA;
+extern uint32_t  _S_BSS;
+extern uint32_t  _E_BSS;
+
+
+
+
+//Defination of the target
+void Default_Handler(void)
+{
+	Reset_Handler();
+}
+
+
+
+
+
 void Reset_Handler(void)
 {
 	//copy .data from flash to sram
