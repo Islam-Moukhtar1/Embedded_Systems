@@ -1,0 +1,42 @@
+/*
+linker_script.ld
+Eng.Islam Moukhtar
+*/
+
+ENTRY(.text)
+
+MEMORY
+{
+flash(rx) : ORIGIN = 0x0000000, LENGTH = 512M 
+sram(rwx) : ORIGIN = 0x2000000, LENGTH = 512M
+}
+
+SECTIONS
+{
+	.text :
+		{
+		*(.vectors*)  
+		*(.text) 
+		*(.rodata)
+		_E_TEXT = . ;
+	} >flash
+
+	.data :
+		{
+		_S_DATA = . ;
+		*(.data)
+		_E_DATA = . ;
+	}> sram AT> flash
+	.bss :
+		{
+		_S_BSS = . ;
+		*(.bss)
+		_E_BSS = . ;
+		
+	}> sram 
+
+/*not found in FLASH it is unlogic to waste 
+flash memory to store something 
+that has no value wanted to be remebered */
+
+}
